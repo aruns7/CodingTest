@@ -1,0 +1,9 @@
+The test was started at 4.40 and final submission around 5:55
+
+Approach:
+After recieving the requirement I spent a little time thinking and producing a design.
+It's very simple with a factory method in WidgetMachine, which is loosely coupled to an Engine interface
+I then spent a fair amount of the allocated time refactoring after initial tests were implemented. Further tests and code was developed.
+ToDo
+Create fuel abstractions, which encapsulates fuel details. Currently engines are exposed to these details.
+Create batch abstractions and optimise the produce calculation utilising BigDecimal.
