@@ -4,6 +4,7 @@ public class WidgetMachine {
     private InternalCombustionEngine engine = new InternalCombustionEngine(FuelType.PETROL);
 
     public int produceWidgets(int quantity) {
+        engine.fill(engine.getFuelType(), 100);
         engine.start();
         int cost = 0;
 
