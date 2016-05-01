@@ -1,5 +1,7 @@
 package com.interview;
 
+import java.math.BigDecimal;
+
 public class InternalCombustionEngine extends AbstractEngine{
 
     /**
@@ -18,7 +20,7 @@ public class InternalCombustionEngine extends AbstractEngine{
         }
     }
 
-    public int getProduceCost(int quantity){
+    public BigDecimal getProduceCost(int quantity){
         int batch = 0;
         int batchCount = 0;
         int costPerBatch = 0;
@@ -34,6 +36,5 @@ public class InternalCombustionEngine extends AbstractEngine{
             batchCount++;
         }
 
-        return batchCount * costPerBatch;
-    }
+        return new BigDecimal(batchCount * costPerBatch);    }
 }

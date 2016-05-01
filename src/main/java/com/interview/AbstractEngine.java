@@ -1,5 +1,7 @@
 package com.interview;
 
+import java.math.BigDecimal;
+
 /**
  * Created on 01/05/2016.
  */
@@ -58,6 +60,6 @@ public abstract class AbstractEngine implements Engine{
         return this.fuelLevel;
     }
 
-    public abstract int getProduceCost(int quantity);
+    public abstract BigDecimal getProduceCost(int quantity);
 
 }

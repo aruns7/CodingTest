@@ -1,5 +1,7 @@
 package com.interview;
 
+import java.math.BigDecimal;
+
 public class SteamEngine extends AbstractEngine{
 
     /**
@@ -17,22 +19,26 @@ public class SteamEngine extends AbstractEngine{
             }
         }
     }
-    public int getProduceCost(int quantity){
+
+    private BigDecimal costPerBatch=new BigDecimal("0");
+    private final BigDecimal costPerBatchForWood=new BigDecimal("4.35");
+    private final BigDecimal costPerBatchForCoal=new BigDecimal("5.65");
+
+    public BigDecimal getProduceCost(int quantity){
+        //todo refactor: batch:cost per batch, batch size, noOfBatches, cost(noBatches*costPerBatch) should be in a batch abstraction
         int batch = 0;
         int batchCount = 0;
-        int costPerBatch = 0;
-
-        if (getFuelType() == FuelType.PETROL) {
-            costPerBatch = 9;
-        } else if (getFuelType() == FuelType.DIESEL) {
-            costPerBatch = 12;
+        if (getFuelType() == FuelType.WOOD) {
+            costPerBatch = costPerBatchForWood;
+        } else if (getFuelType() == FuelType.COAL) {
+            costPerBatch = costPerBatchForCoal;
         }
 
         while (batch < quantity) {
-            batch = batch + 8;
+            batch = batch + 2;
             batchCount++;
         }
-
-        return batchCount * costPerBatch;
+        return costPerBatch.multiply(new BigDecimal(batchCount) );
     }
+
 }

@@ -1,5 +1,7 @@
 package com.interview;
 
+import java.math.BigDecimal;
+
 /**
  * Created on 01/05/2016.
  */
@@ -42,7 +44,7 @@ public interface Engine {
          * @param quantity the quantity to produce
          * @return the cost
          */
-        public int getProduceCost(int quantity);
+        public BigDecimal getProduceCost(int quantity);
 
         /**
          * gets fuel level
