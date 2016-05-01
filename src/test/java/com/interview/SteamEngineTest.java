@@ -25,4 +25,20 @@ public class SteamEngineTest {
         steamEngineWood.start();
         assertTrue("steam engine running", steamEngineWood.isRunning() );
     }
+
+    @Test(expected=IllegalStateException.class)
+    public void steamEngineIncorrectlyInitialised(){
+        assertTrue("engine not running", !steamEngineWood.isRunning());
+        steamEngineWood.fill(FuelType.PETROL, 100);
+        steamEngineWood.start();
+    }
+
+    @Test
+    public void steamEngineNotRunning(){
+        assertTrue("engine not running", !steamEngineWood.isRunning());
+        steamEngineWood.fill(FuelType.PETROL, 100);
+        assertTrue("engine still not running!", !steamEngineWood.isRunning());
+    }
+
+
 }
