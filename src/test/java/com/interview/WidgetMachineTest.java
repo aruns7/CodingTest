@@ -8,11 +8,14 @@ import static org.junit.Assert.*;
  */
 public class WidgetMachineTest {
 
+    private WidgetMachine internalCombustionEnginePetrolWidgetMachine= WidgetMachine.INTERNAL_COMBUSTION_PETROL_ENGINE;
+    private WidgetMachine internalCombustionEngineDieselWidgetMachine=WidgetMachine.INTERNAL_COMBUSTION_DIESEL_ENGINE;
+
+
     @Test
     public void produceWidget() {
-        WidgetMachine machine = new InternalCombustionPetrolEngineFactory();
-        int costTwoWidgets = machine.produceWidgets(2);
-        int costTenWidgets = machine.produceWidgets(10);
+        int costTwoWidgets = internalCombustionEnginePetrolWidgetMachine.produceWidgets(2);
+        int costTenWidgets = internalCombustionEnginePetrolWidgetMachine.produceWidgets(10);
         assertEquals("create 2 widgets for internal combustion engine filled with petrol", 9, costTwoWidgets);
         assertEquals("create 10 widgets for internal combustion engine filled with petrol", 18,  costTenWidgets) ;
     }

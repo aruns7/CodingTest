@@ -1,9 +1,12 @@
 package com.interview;
 
 public abstract class WidgetMachine {
-    private InternalCombustionEngine engine = new InternalCombustionEngine(FuelType.PETROL);
+
+    public static final WidgetMachine INTERNAL_COMBUSTION_DIESEL_ENGINE=new InternalCombustionDieselEngineFactory();
+    public static final WidgetMachine INTERNAL_COMBUSTION_PETROL_ENGINE=new InternalCombustionPetrolEngineFactory();
 
     public int produceWidgets(int quantity) {
+        Engine engine=getEngine();
         engine.fill(engine.getFuelType(), 100);
         engine.start();
         int cost = 0;
@@ -15,25 +18,6 @@ public abstract class WidgetMachine {
         engine.stop();
 
         return cost;
-    }
-
-    private int produce(int quantity) {
-        int batch = 0;
-        int batchCount = 0;
-        int costPerBatch = 0;
-
-        if (engine.getFuelType() == FuelType.PETROL) {
-            costPerBatch = 9;
-        } else if (engine.getFuelType() == FuelType.DIESEL) {
-            costPerBatch = 12;
-        }
-
-        while (batch < quantity) {
-            batch = batch + 8;
-            batchCount++;
-        }
-
-        return batchCount * costPerBatch;
     }
 
     protected abstract Engine getEngine();
