@@ -12,12 +12,11 @@ public class SteamEngine extends AbstractEngine{
 
     public void fill(FuelType fuelType, int fuelLevel) {
         if(requiredFuelType==fuelType){
-            if(fuelType==FuelType.DIESEL || fuelType==FuelType.PETROL){
+            if(fuelType==FuelType.WOOD || fuelType==FuelType.COAL){
                 super.fill(fuelType, fuelLevel);
             }
         }
     }
-
     public int getProduceCost(int quantity){
         int batch = 0;
         int batchCount = 0;
