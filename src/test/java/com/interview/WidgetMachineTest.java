@@ -12,7 +12,7 @@ public class WidgetMachineTest {
     public void produceWidget() {
         WidgetMachine machine = new WidgetMachine();
         int result = machine.produceWidgets(2);
+        System.out.println("not publishing to github!!");
         assertEquals("create 2 widgets for internal combustion engine filled with petrol", 9, result);
-
     }
 }
