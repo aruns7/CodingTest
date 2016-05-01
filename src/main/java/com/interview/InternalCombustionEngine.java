@@ -46,4 +46,24 @@ public class InternalCombustionEngine {
     public FuelType getFuelType() {
         return  requiredFuelType;
     }
+
+    public int getProduceCost(int quantity){
+        //todo refactor: create batch abstraction:cost per batch, batch size, noOfBatches, cost(noBatches*costPerBatch)
+        int batch = 0;
+        int batchCount = 0;
+        int costPerBatch = 0;
+
+        if (getFuelType() == FuelType.PETROL) {
+            costPerBatch = 9;
+        } else if (getFuelType() == FuelType.DIESEL) {
+            costPerBatch = 12;
+        }
+
+        while (batch < quantity) {
+            batch = batch + 8;
+            batchCount++;
+        }
+
+        return batchCount * costPerBatch;
+    }
 }

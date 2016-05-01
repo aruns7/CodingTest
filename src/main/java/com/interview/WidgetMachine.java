@@ -9,7 +9,7 @@ public class WidgetMachine {
         int cost = 0;
 
         if (engine.isRunning()) {
-            cost = produce(quantity);
+            cost = engine.getProduceCost(quantity);
         }
 
         engine.stop();
