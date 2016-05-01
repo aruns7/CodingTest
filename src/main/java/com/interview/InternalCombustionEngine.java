@@ -1,6 +1,6 @@
 package com.interview;
 
-public class InternalCombustionEngine {
+public class InternalCombustionEngine implements Engine{
 
     private boolean running;
     private int fuelLevel;
@@ -48,7 +48,6 @@ public class InternalCombustionEngine {
     }
 
     public int getProduceCost(int quantity){
-        //todo refactor: create batch abstraction:cost per batch, batch size, noOfBatches, cost(noBatches*costPerBatch)
         int batch = 0;
         int batchCount = 0;
         int costPerBatch = 0;
@@ -66,4 +65,9 @@ public class InternalCombustionEngine {
 
         return batchCount * costPerBatch;
     }
+
+    public int getFuelLevel(){
+        return this.fuelLevel;
+    }
+
 }

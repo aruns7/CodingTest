@@ -1,6 +1,6 @@
 package com.interview;
 
-public class WidgetMachine {
+public abstract class WidgetMachine {
     private InternalCombustionEngine engine = new InternalCombustionEngine(FuelType.PETROL);
 
     public int produceWidgets(int quantity) {
@@ -36,5 +36,6 @@ public class WidgetMachine {
         return batchCount * costPerBatch;
     }
 
+    protected abstract Engine getEngine();
 
 }
